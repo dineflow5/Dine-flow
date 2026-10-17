@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   DineFlow — iPhone 17 Simulator
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="stage">
+   <div class="phone">
+    <div class="speaker">
+    </div>
+    <div class="screen" id="screen">
+     <div class="login" id="login">
+      <div class="login-photo">
+      </div>
+      <div class="shade">
+      </div>
+      <div class="login-content">
+       <div class="logo">
+        🍴
+       </div>
+       <h1>
+        DineFlow
+       </h1>
+       <p id="authSubtitle">
+        Restaurant Management
+       </p>
+       <form id="loginForm">
+        <label for="user">
+         Username or Email
+        </label>
+        <input autocomplete="username" id="user" placeholder="Username or Email" required=""/>
+        <label for="pass">
+         Password
+        </label>
+        <input autocomplete="current-password" id="pass" placeholder="Password" required="" type="password"/>
+        <button id="authSubmit" type="submit">
+         Log In
+        </button>
+        <p class="auth-message" id="authMessage" role="status">
+        </p>
+       </form>
+      </div>
+     </div>
+     <div class="app hidden" id="app">
+      <header>
+       <div>
+        <small>
+         RESTAURANT MANAGEMENT
+        </small>
+        <h2 id="title">
+         Dashboard
+        </h2>
+       </div>
+       <button aria-label="Notifications" id="bell">
+        ♧
+       </button>
+      </header>
+      <main>
+       <section class="page" id="dashboard">
+        <div class="welcome">
+         <h3>
+          Good morning!
+         </h3>
+         <p>
+          Here's what's happening in your restaurant today.
+         </p>
+        </div>
+        <div class="stats">
+         <div>
+          <b id="available">
+           6
+          </b>
+          <span>
+           Available
+          </span>
+         </div>
+         <div>
+          <b id="occupied">
+           4
+          </b>
+          <span>
+           Occupied
+          </span>
+         </div>
+         <div>
+          <b id="reserved">
+           2
+          </b>
+          <span>
+           Reserved
+          </span>
+         </div>
+         <div>
+          <b id="total">
+           12
+          </b>
+          <span>
+           Total Tables
+          </span>
+         </div>
+        </div>
+        <div class="sales">
+         <div>
+          <span>
+           Orders
+          </span>
+          <b id="orderMetric">
+           0
+          </b>
+         </div>
+         <div>
+          <span>
+           Total Sales
+          </span>
+          <b id="salesMetric">
+           ₱0
+          </b>
+         </div>
+        </div>
+        <div class="section">
+         <div>
+          <h3>
+           Table Status
+          </h3>
+          <p>
+           Live restaurant overview
+          </p>
+         </div>
+         <button data-page="tables">
+          Manage
+         </button>
+        </div>
+        <div class="tables" id="dashTables">
+        </div>
+       </section>
+       <section class="page hidden" id="tables">
+        <div class="section">
+         <div>
+          <h3>
+           Tables
+          </h3>
+          <p>
+           Monitor and manage tables.
+          </p>
+         </div>
+         <button id="addTable">
+          ＋
+         </button>
+        </div>
+        <div class="filters">
+         <input id="search" placeholder="⌕ Search table"/>
+         <select id="filter">
+          <option value="all">
+           All
+          </option>
+          <option value="available">
+           Available
+          </option>
+          <option value="occupied">
+           Occupied
+          </option>
+          <option value="reserved">
+           Reserved
+          </option>
+         </select>
+        </div>
+        <div class="tables" id="allTables">
+        </div>
+       </section>
+       <section class="page hidden" id="detail">
+        <button class="back" data-page="tables">
+         ← Tables
+        </button>
+        <div class="card">
+         <span class="pill" id="detailStatus">
+         </span>
+         <h2 id="detailName">
+          Table 05
+         </h2>
+         <div class="photo">
+         </div>
+         <h4>
+          Customer
+         </h4>
+         <div class="row">
+          <span>
+           Name
+          </span>
+          <b id="detailCustomer">
+           No customer
+          </b>
+         </div>
+         <div class="row">
+          <span>
+           Guests
+          </span>
+          <b id="detailGuests">
+           —
+          </b>
+         </div>
+         <h4>
+          Current Order
+         </h4>
+         <div id="detailOrder">
+         </div>
+         <div class="total">
+          <span>
+           Total
+          </span>
+          <b id="detailTotal">
+           ₱0
+          </b>
+         </div>
+         <div class="two">
+          <button data-page="orders">
+           ＋ Add Order
+          </button>
+          <button data-page="billing">
+           View Bill
+          </button>
+         </div>
+        </div>
+       </section>
+       <section class="page hidden" id="orders">
+        <div class="section">
+         <div>
+          <h3>
+           New Order
+          </h3>
+          <p>
+           Choose items, customer, and table.
+          </p>
+         </div>
+        </div>
+        <div class="order-fields">
+         <label>
+          Customer name
+          <input id="orderCustomer" placeholder="Enter customer name" required=""/>
+         </label>
+         <label>
+          Serving table
+          <select id="orderTableSelect">
+          </select>
+         </label>
+        </div>
+        <div class="tabs">
+         <button class="active">
+          All
+         </button>
+         <button>
+          Meals
+         </button>
+         <button>
+          Drinks
+         </button>
+         <button>
+          Desserts
+         </button>
+         <button>
+          Snacks
+         </button>
+        </div>
+        <div class="menu" id="menu">
+        </div>
+        <div class="cart">
+         <div>
+          <b>
+           Current Order
+          </b>
+          <span id="cartCount">
+           0 items
+          </span>
+         </div>
+         <div id="cartItems">
+         </div>
+         <div class="total">
+          <span>
+           Total
+          </span>
+          <b id="cartTotal">
+           ₱0
+          </b>
+         </div>
+         <button id="place">
+          Place Order
+         </button>
+        </div>
+       </section>
+       <section class="page hidden" id="billing">
+        <button class="back" data-page="detail">
+         ← Table
+        </button>
+        <div class="card">
+         <h3 id="billTable">
+          Table 05
+         </h3>
+         <p id="billCustomer">
+          No customer assigned
+         </p>
+         <hr/>
+         <div id="billLines">
+         </div>
+         <div class="row">
+          <span>
+           Subtotal
+          </span>
+          <b id="billSubtotal">
+           ₱0
+          </b>
+         </div>
+         <div class="total">
+          <span>
+           Total
+          </span>
+          <b id="billTotal">
+           ₱0
+          </b>
+         </div>
+         <h4>
+          Payment Method
+         </h4>
+         <label class="pay">
+          <input checked="" name="payment" type="radio" value="Cash"/>
+          Cash
+         </label>
+         <label class="pay">
+          <input name="payment" type="radio" value="GCash"/>
+          GCash
+         </label>
+         <label class="pay">
+          <input name="payment" type="radio" value="Card"/>
+          Card
+         </label>
+         <button id="payNow">
+          Confirm Payment
+         </button>
+        </div>
+       </section>
+       <section class="page hidden" id="customers">
+        <div class="section">
+         <div>
+          <h3>
+           Customers
+          </h3>
+          <p>
+           Customer profiles and order history.
+          </p>
+         </div>
+        </div>
+        <input class="full" id="customerSearch" placeholder="⌕ Search customer"/>
+        <div id="customersList">
+        </div>
+        <div class="card" id="profile">
+         <p>
+          Select a customer to view their history.
+         </p>
+        </div>
+       </section>
+       <section class="page hidden" id="reservations">
+        <div class="section">
+         <div>
+          <h3>
+           Reservations
+          </h3>
+          <p>
+           Upcoming reservations
+          </p>
+         </div>
+         <button id="newRes">
+          ＋
+         </button>
+        </div>
+        <div id="resList">
+        </div>
+       </section>
+       <section class="page hidden" id="settings">
+        <div class="section">
+         <div>
+          <h3>
+           Settings
+          </h3>
+          <p>
+           DineFlow preferences
+          </p>
+         </div>
+        </div>
+        <div class="card">
+         <label>
+          Restaurant Name
+          <input id="restaurantName" value="DineFlow Restaurant"/>
+         </label>
+         <label>
+          Currency
+          <select id="currency">
+           <option value="PHP">
+            PHP — ₱
+           </option>
+          </select>
+         </label>
+         <div class="theme-setting">
+          <div>
+           <b>
+            Appearance
+           </b>
+           <span>
+            Switch between light and dark mode
+           </span>
+          </div>
+          <label class="toggle">
+           <input id="themeToggle" type="checkbox"/>
+           <span class="slider">
+           </span>
+          </label>
+         </div>
+         <button id="save">
+          Save Settings
+         </button>
+         <button class="secondary-btn" id="logout">
+          Log Out
+         </button>
+        </div>
+       </section>
+      </main>
+      <nav>
+       <button class="active" data-page="dashboard">
+        ⌂
+        <small>
+         Home
+        </small>
+       </button>
+       <button data-page="tables">
+        ▦
+        <small>
+         Tables
+        </small>
+       </button>
+       <button data-page="orders">
+        ▤
+        <small>
+         Orders
+        </small>
+       </button>
+       <button data-page="customers">
+        ♙
+        <small>
+         Customers
+        </small>
+       </button>
+       <button data-page="reservations">
+        ◷
+        <small>
+         Reservations
+        </small>
+       </button>
+       <button data-page="settings">
+        ⚙
+        <small>
+         Settings
+        </small>
+       </button>
+      </nav>
+     </div>
+     <div aria-hidden="true" class="modal hidden" id="modal">
+      <div aria-modal="true" class="modal-box" role="dialog">
+       <button aria-label="Close" class="modal-close" id="close" type="button">
+        ×
+       </button>
+       <div class="modal-icon" id="modalIcon">
+        ＋
+       </div>
+       <h3 id="modalTitle">
+        Reservation
+       </h3>
+       <p id="modalText">
+       </p>
+       <form class="modal-form" id="reservationForm">
+        <label>
+         Customer name
+         <input id="resName" placeholder="Customer name" required=""/>
+        </label>
+        <label>
+         Date
+         <input id="resDate" required="" type="date"/>
+        </label>
+        <label>
+         Time
+         <input id="resTime" required="" type="time" value="18:00"/>
+        </label>
+        <label>
+         Number of guests
+         <select id="resGuests" required="">
+          <option value="1">
+           1 guest
+          </option>
+          <option value="2">
+           2 guests
+          </option>
+          <option value="3">
+           3 guests
+          </option>
+          <option selected="" value="4">
+           4 guests
+          </option>
+          <option value="5">
+           5 guests
+          </option>
+          <option value="6">
+           6 guests
+          </option>
+          <option value="7">
+           7 guests
+          </option>
+          <option value="8">
+           8 guests
+          </option>
+          <option value="9">
+           9 guests
+          </option>
+          <option value="10">
+           10 guests
+          </option>
+         </select>
+        </label>
+        <label>
+         Available table
+         <select id="resTable" required="">
+         </select>
+        </label>
+        <p class="form-error" id="resError" role="status">
+        </p>
+        <div class="actions">
+         <button id="keep" type="button">
+          Close
+         </button>
+         <button id="confirm" type="submit">
+          Save Reservation
+         </button>
+        </div>
+       </form>
+      </div>
+     </div>
+     <div aria-live="polite" id="toast" role="status">
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="script.js">
+  </script>
+ </body>
+</html>
